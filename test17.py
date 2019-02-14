@@ -6,6 +6,8 @@ with open(text) as data:
     line_1 = [i[0] for i in tmp]
 
     set_1 = set(line_1)
+    sorted_line = list(set_1)
+    sorted(sorted_line)
 
-for n in set_1:
+for n in sorted_line:
     print(n)
