@@ -1,4 +1,4 @@
-from itertools import groupby
+from collections import defaultdict
 
 text = 'hightemp.txt'
 
@@ -7,9 +7,9 @@ with open(text) as data:
 
 col_1 = [line.split('\t')[0] for line in lines]
 
-pref = {}
+pref = defaultdict(int)
 for word in col_1:
-    pref[word] = pref.get(word, 0) + 1
+    pref[word] += 1
 
 result = sorted(pref.items(), key=lambda x: x[1], reverse=True)
 
