@@ -2,6 +2,8 @@ import gzip
 import json
 import re
 import urllib.parse, urllib.request
+import requests
+import pprint
 
 file = 'jawiki-country.json.gz'
 
@@ -109,11 +111,8 @@ url = 'https://www.mediawiki.org/w/api.php?' \
     + '&prop=imageinfo' \
     + '&iiprop=url'
 
-request = urllib.request.Request(url,
-    headers={'User-Agent': 'NLP100_Python(@segavvy)'})
-connection = urllib.request.urlopen(request)
+#print(url)
 
-data = json.loads(connection.read().decode())
-
-url = data['query']['pages'].popitem()[1]['imageinfo'][0]['url']
-print(url)
+r = requests.get(url)
+url_flag = r.json()['query']['pages'].popitem()[1]['imageinfo'][0]['url']
+print(url_flag)
