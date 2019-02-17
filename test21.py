@@ -13,7 +13,7 @@ def article_UK():
                 return (data_json['text'])
                 
 
-reg = re.compile(r'''^().*\[\[Category.*\]\].*)$''', re.MULTILINE + re.VERBOSE)
+reg = re.compile(r'''^(.*\[\[Category.*\]\].*)$''', re.MULTILINE + re.VERBOSE)
 
 result = reg.findall(article_UK())
 
